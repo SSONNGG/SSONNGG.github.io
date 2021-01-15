@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/SSONNGG.github.io/img/mainicon.png">
+  <link rel="icon" type="image/png" href="/SSONNGG.github.io/img/mainicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f71a3">
+  <meta name="description" content="">
+  <meta name="author" content="Song">
+  <meta name="keywords" content="">
+  <title>Ecplise创建新工作空间所需做的设置 (Java &amp; JavaWeb) - 宋宋的Blog</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/SSONNGG.github.io/lib/hint/hint.min.css" />
+
+  
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/vs2015.min.css" />
+  
+
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_yg9cfy8wd6.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
+
+
+<link  rel="stylesheet" href="/SSONNGG.github.io/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script  src="/SSONNGG.github.io/js/utils.js" ></script>
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/SSONNGG.github.io/">&nbsp;<strong>_SongX_</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/SSONNGG.github.io/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/SSONNGG.github.io/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/SSONNGG.github.io/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/SSONNGG.github.io/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/SSONNGG.github.io/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="view intro-2" id="background" parallax=true
+         style="background: url('/SSONNGG.github.io/img/img_bgpost.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container text-center white-text fadeInUp">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              
+  <div class="mt-3 post-meta">
+    <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+    <time datetime="2020-07-14 14:30">
+      2020年7月14日 下午
+    </time>
+  </div>
+
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      507 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      6
+       分钟
+    </span>
+  
+
+  
+  
+    
+      <!-- 不蒜子统计文章PV -->
+      <span id="busuanzi_container_page_pv" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="busuanzi_value_page_pv"></span> 次
+      </span>
+    
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <div class="post-content mx-auto" id="post">
+            
+            <article class="markdown-body">
+              <div class="note note-danger">
+            <p>本文来自我的<a target="_blank" rel="noopener" href="https://blog.csdn.net/song310383/article/details/105287610">CSDN博客</a>，部分图片存在水印为CSDN上传文章自带。</p>
+          </div>
+<h1 id="java部分"><a class="markdownIt-Anchor" href="#java部分"></a> Java部分</h1>
+<h2 id="一-工作空间编码集设置"><a class="markdownIt-Anchor" href="#一-工作空间编码集设置"></a> 一、工作空间编码集设置</h2>
+<p>依次选择 <strong>window --&gt; Preferences --&gt; Genral --&gt; Workspace</strong>，</p>
+<p>在 Text file encoding 区域选择 Other 并选择 UTF-8，点击 Apply 后 OK 即可</p>
+<p><img src="/SSONNGG.github.io/2020/07/14/Ecplise%E5%88%9B%E5%BB%BA%E6%96%B0%E5%B7%A5%E4%BD%9C%E7%A9%BA%E9%97%B4%E6%89%80%E9%9C%80%E5%81%9A%E7%9A%84%E8%AE%BE%E7%BD%AE-Java-JavaWeb/20200403200114925.png" srcset="/SSONNGG.github.io/img/loading.gif" alt="20200403200114925"></p>
+<h2 id="二-字体设置"><a class="markdownIt-Anchor" href="#二-字体设置"></a> 二、字体设置</h2>
+<p><strong>window --&gt; Preferences --&gt; Genra --&gt; Appearance–&gt; Color and Fonts</strong></p>
+<p>选中 Basic 中的 Text Font，点击 Edit 选择自己喜欢的字体以及字体大小即可</p>
+<p><img src="/SSONNGG.github.io/2020/07/14/Ecplise%E5%88%9B%E5%BB%BA%E6%96%B0%E5%B7%A5%E4%BD%9C%E7%A9%BA%E9%97%B4%E6%89%80%E9%9C%80%E5%81%9A%E7%9A%84%E8%AE%BE%E7%BD%AE-Java-JavaWeb/2020040320044311.png" srcset="/SSONNGG.github.io/img/loading.gif" alt="2020040320044311"></p>
+<h2 id="三-java自动格式化代码设置"><a class="markdownIt-Anchor" href="#三-java自动格式化代码设置"></a> 三、Java自动格式化代码设置</h2>
+<p><strong>window --&gt; Preferences --&gt; Java --&gt; Editor --&gt; Save Actions</strong></p>
+<p>并按照下图所示选择即可</p>
+<p><img src="/SSONNGG.github.io/2020/07/14/Ecplise%E5%88%9B%E5%BB%BA%E6%96%B0%E5%B7%A5%E4%BD%9C%E7%A9%BA%E9%97%B4%E6%89%80%E9%9C%80%E5%81%9A%E7%9A%84%E8%AE%BE%E7%BD%AE-Java-JavaWeb/2020040320121718.png" srcset="/SSONNGG.github.io/img/loading.gif" alt="2020040320121718"></p>
+<h2 id="四-设置格式化代码时不格式化注释"><a class="markdownIt-Anchor" href="#四-设置格式化代码时不格式化注释"></a> 四、设置格式化代码时不格式化注释</h2>
+<p><strong>window --&gt; Preferences --&gt; Java --&gt; Code Style --&gt; Formatter</strong></p>
+<p>取消勾选 Enable Javadoc comment formatting</p>
+<p><img src="/SSONNGG.github.io/2020/07/14/Ecplise%E5%88%9B%E5%BB%BA%E6%96%B0%E5%B7%A5%E4%BD%9C%E7%A9%BA%E9%97%B4%E6%89%80%E9%9C%80%E5%81%9A%E7%9A%84%E8%AE%BE%E7%BD%AE-Java-JavaWeb/image-20200714144239912.png" srcset="/SSONNGG.github.io/img/loading.gif" alt="image-20200714144239912"></p>
+<p><img src="/SSONNGG.github.io/2020/07/14/Ecplise%E5%88%9B%E5%BB%BA%E6%96%B0%E5%B7%A5%E4%BD%9C%E7%A9%BA%E9%97%B4%E6%89%80%E9%9C%80%E5%81%9A%E7%9A%84%E8%AE%BE%E7%BD%AE-Java-JavaWeb/image-20200714144114193.png" srcset="/SSONNGG.github.io/img/loading.gif" alt="image-20200714144114193"></p>
+<p>如果勾选后设置页面底部出现如下提示</p>
+<p><img src="/SSONNGG.github.io/2020/07/14/Ecplise%E5%88%9B%E5%BB%BA%E6%96%B0%E5%B7%A5%E4%BD%9C%E7%A9%BA%E9%97%B4%E6%89%80%E9%9C%80%E5%81%9A%E7%9A%84%E8%AE%BE%E7%BD%AE-Java-JavaWeb/image-20200714144334407.png" srcset="/SSONNGG.github.io/img/loading.gif" alt="image-20200714144334407"></p>
+<p>修改任意未存在的 Profile name 点击OK即可</p>
+<p><img src="/SSONNGG.github.io/2020/07/14/Ecplise%E5%88%9B%E5%BB%BA%E6%96%B0%E5%B7%A5%E4%BD%9C%E7%A9%BA%E9%97%B4%E6%89%80%E9%9C%80%E5%81%9A%E7%9A%84%E8%AE%BE%E7%BD%AE-Java-JavaWeb/image-20200714144444689.png" srcset="/SSONNGG.github.io/img/loading.gif" alt="image-20200714144444689"></p>
+<hr>
+<h1 id="javaweb部分"><a class="markdownIt-Anchor" href="#javaweb部分"></a> JavaWeb部分</h1>
+<h2 id="一-html5设置"><a class="markdownIt-Anchor" href="#一-html5设置"></a> 一、Html5设置</h2>
+<p><strong>window --&gt; Preferences --&gt; Web --&gt;JSP Files --&gt; Editor --&gt; Templates</strong></p>
+<p>选择 new JSP File (html)，点击 Edit</p>
+<p><img src="/SSONNGG.github.io/2020/07/14/Ecplise%E5%88%9B%E5%BB%BA%E6%96%B0%E5%B7%A5%E4%BD%9C%E7%A9%BA%E9%97%B4%E6%89%80%E9%9C%80%E5%81%9A%E7%9A%84%E8%AE%BE%E7%BD%AE-Java-JavaWeb/20200404131159312.png" srcset="/SSONNGG.github.io/img/loading.gif" alt="20200404131159312"></p>
+<p>将以下代码复制粘贴替换掉 Pattern 中的所有代码，点击OK，保存即可</p>
+<div class="hljs"><pre><code class="hljs html">&lt;%@ page language=&quot;java&quot; contentType=&quot;text/html; charset=UTF-8&quot;
+    pageEncoding=&quot;UTF-8&quot;%&gt;
+<span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-meta-keyword">html</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">&quot;UTF-8&quot;</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>Insert title here<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span></code></pre></div>
+<h2 id="二-服务器设置"><a class="markdownIt-Anchor" href="#二-服务器设置"></a> 二、服务器设置</h2>
+<p>点击 Add，选择自己已经安装好的 Tomcat 服务器版本</p>
+<p><img src="/SSONNGG.github.io/2020/07/14/Ecplise%E5%88%9B%E5%BB%BA%E6%96%B0%E5%B7%A5%E4%BD%9C%E7%A9%BA%E9%97%B4%E6%89%80%E9%9C%80%E5%81%9A%E7%9A%84%E8%AE%BE%E7%BD%AE-Java-JavaWeb/20200403201814767.png" srcset="/SSONNGG.github.io/img/loading.gif" alt="20200403201814767"></p>
+<p><img src="/SSONNGG.github.io/2020/07/14/Ecplise%E5%88%9B%E5%BB%BA%E6%96%B0%E5%B7%A5%E4%BD%9C%E7%A9%BA%E9%97%B4%E6%89%80%E9%9C%80%E5%81%9A%E7%9A%84%E8%AE%BE%E7%BD%AE-Java-JavaWeb/20200403201918244.png" srcset="/SSONNGG.github.io/img/loading.gif" alt="20200403201918244"></p>
+<p>点击 Next，在 Tomcat installation directory 点击 Browse ，选择已安装 Tomcat 的文件夹</p>
+<p><img src="/SSONNGG.github.io/2020/07/14/Ecplise%E5%88%9B%E5%BB%BA%E6%96%B0%E5%B7%A5%E4%BD%9C%E7%A9%BA%E9%97%B4%E6%89%80%E9%9C%80%E5%81%9A%E7%9A%84%E8%AE%BE%E7%BD%AE-Java-JavaWeb/20200403202149195.png" srcset="/SSONNGG.github.io/img/loading.gif" alt="20200403202149195"></p>
+<h2 id="三-tomcat设置"><a class="markdownIt-Anchor" href="#三-tomcat设置"></a> 三、Tomcat设置</h2>
+<p>部署好 Tomcat 之后，在 Ecplise 下方 Overview 点击 Server，双击 Tomcat 服务</p>
+<p><img src="/SSONNGG.github.io/2020/07/14/Ecplise%E5%88%9B%E5%BB%BA%E6%96%B0%E5%B7%A5%E4%BD%9C%E7%A9%BA%E9%97%B4%E6%89%80%E9%9C%80%E5%81%9A%E7%9A%84%E8%AE%BE%E7%BD%AE-Java-JavaWeb/20200403202403401.png" srcset="/SSONNGG.github.io/img/loading.gif" alt="20200403202403401"></p>
+<p>在弹出的界面中检查 Server Path 是否为系统安装 Tomcat 的地址</p>
+<p>并将下方 Deploy path 部分改为 webapps（如下图）</p>
+<p>按 Ctrl＋S 保存</p>
+<p><img src="/SSONNGG.github.io/2020/07/14/Ecplise%E5%88%9B%E5%BB%BA%E6%96%B0%E5%B7%A5%E4%BD%9C%E7%A9%BA%E9%97%B4%E6%89%80%E9%9C%80%E5%81%9A%E7%9A%84%E8%AE%BE%E7%BD%AE-Java-JavaWeb/20200403202525333.png" srcset="/SSONNGG.github.io/img/loading.gif" alt="20200403202525333"></p>
+<p>之后在 Overview --&gt; Server 中右击 Tomcat 选择 Start 启动服务器</p>
+<p><img src="/SSONNGG.github.io/2020/07/14/Ecplise%E5%88%9B%E5%BB%BA%E6%96%B0%E5%B7%A5%E4%BD%9C%E7%A9%BA%E9%97%B4%E6%89%80%E9%9C%80%E5%81%9A%E7%9A%84%E8%AE%BE%E7%BD%AE-Java-JavaWeb/20200403202844492.png" srcset="/SSONNGG.github.io/img/loading.gif" alt="20200403202844492"></p>
+<p>在 Console 控制台出现如下命令服务器即启动成功</p>
+<div class="hljs"><pre><code class="hljs apache"><span class="hljs-attribute">Server</span> startup in <span class="hljs-number">4101</span> ms</code></pre></div>
+<p>最后打开浏览器，在地址栏输入</p>
+<div class="hljs"><pre><code class="hljs awk">http:<span class="hljs-regexp">//</span>localhost:<span class="hljs-number">8080</span></code></pre></div>
+<p>如果出现 Tomcat 页面则表示服务器部署成功</p>
+<p><img src="/SSONNGG.github.io/2020/07/14/Ecplise%E5%88%9B%E5%BB%BA%E6%96%B0%E5%B7%A5%E4%BD%9C%E7%A9%BA%E9%97%B4%E6%89%80%E9%9C%80%E5%81%9A%E7%9A%84%E8%AE%BE%E7%BD%AE-Java-JavaWeb/20200403203145601.png" srcset="/SSONNGG.github.io/img/loading.gif" alt="20200403203145601"></p>
+
+            </article>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/SSONNGG.github.io/categories/IDEA/">IDEA</a>
+                    
+                      <a class="hover-with-bg" href="/SSONNGG.github.io/categories/Java/">Java</a>
+                    
+                      <a class="hover-with-bg" href="/SSONNGG.github.io/categories/IDEA/Ecplise/">Ecplise</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/SSONNGG.github.io/tags/%E9%83%A8%E7%BD%B2/">部署</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <div class="post-prev col-6">
+                    
+                    
+                      <a href="/SSONNGG.github.io/2020/07/19/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E3%80%8A%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E3%80%8B%E7%AC%AC1%E7%AB%A0%E5%9F%BA%E6%9C%AC%E5%AE%9A%E4%B9%89%E4%B8%8E%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">学习笔记 | 数据结构（一）基本定义与基本概念</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </div>
+                  <div class="post-next col-6">
+                    
+                    
+                      <a href="/SSONNGG.github.io/2020/07/13/%E8%BE%A9%E8%AE%BA%E8%AE%B2%E4%B9%89-%E7%AC%AC%E4%B8%80%E7%AB%A0-%E8%A7%82%E7%82%B9%E7%9A%84%E7%94%9F%E6%88%90%E4%B8%8E%E5%8D%87%E5%8D%8E/">
+                        <span class="hidden-mobile">辩论讲义 | [第一章]观点的生成与升华</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </div>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <div class="comments" id="comments">
+                
+                
+  <div id="vcomments"></div>
+  <script type="text/javascript">
+    function loadValine() {
+      addScript('https://cdn.staticfile.org/valine/1.4.14/Valine.min.js', function () {
+        new Valine({
+          el: "#vcomments",
+          app_id: "w7L8Qmyb6xikG44YtpD1odkC-gzGzoHsz",
+          app_key: "vn5zjxdfo6xNiCYuivgvGGCP",
+          placeholder: "说点什么",
+          path: window.location.pathname,
+          avatar: "retro",
+          meta: ["nick","mail","link"],
+          pageSize: "10",
+          lang: "zh-CN",
+          highlight: false,
+          recordIP: false,
+          serverURLs: "",
+        });
+      });
+    }
+    createObserver(loadValine, 'vcomments');
+  </script>
+  <noscript>Please enable JavaScript to view the <a target="_blank" href="https://valine.js.org" rel="nofollow noopener noopener">comments
+      powered by Valine.</a></noscript>
+
+
+              </div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
+    </div>
+    
+
+    
+
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/SSONNGG.github.io/js/debouncer.js" ></script>
+<script  src="/SSONNGG.github.io/js/main.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/SSONNGG.github.io/js/lazyload.js" ></script>
+  
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/SSONNGG.github.io/js/clipboard-use.js" ></script>
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: 'article.markdown-body',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "Ecplise创建新工作空间所需做的设置 (Java & JavaWeb)&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/SSONNGG.github.io/js/local-search.js" ></script>
+  <script>
+    var path = "/SSONNGG.github.io/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

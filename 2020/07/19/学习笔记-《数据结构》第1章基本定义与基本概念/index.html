@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/SSONNGG.github.io/img/mainicon.png">
+  <link rel="icon" type="image/png" href="/SSONNGG.github.io/img/mainicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f71a3">
+  <meta name="description" content="">
+  <meta name="author" content="Song">
+  <meta name="keywords" content="">
+  <title>学习笔记 | 数据结构（一）基本定义与基本概念 - 宋宋的Blog</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/SSONNGG.github.io/lib/hint/hint.min.css" />
+
+  
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/vs2015.min.css" />
+  
+
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_yg9cfy8wd6.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
+
+
+<link  rel="stylesheet" href="/SSONNGG.github.io/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script  src="/SSONNGG.github.io/js/utils.js" ></script>
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/SSONNGG.github.io/">&nbsp;<strong>_SongX_</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/SSONNGG.github.io/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/SSONNGG.github.io/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/SSONNGG.github.io/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/SSONNGG.github.io/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/SSONNGG.github.io/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="view intro-2" id="background" parallax=true
+         style="background: url('/SSONNGG.github.io/img/img_bgpost.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container text-center white-text fadeInUp">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              
+  <div class="mt-3 post-meta">
+    <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+    <time datetime="2020-07-19 13:46">
+      2020年7月19日 下午
+    </time>
+  </div>
+
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      3.7k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      43
+       分钟
+    </span>
+  
+
+  
+  
+    
+      <!-- 不蒜子统计文章PV -->
+      <span id="busuanzi_container_page_pv" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="busuanzi_value_page_pv"></span> 次
+      </span>
+    
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <div class="post-content mx-auto" id="post">
+            
+            <article class="markdown-body">
+              <h1 id="一基本概念和术语"><a class="markdownIt-Anchor" href="#一基本概念和术语"></a> 一.基本概念和术语</h1>
+<p>数据：客观事物的符号表示，是所有能输入到计算机中并被计算机程序处理的符号的总称</p>
+<p>数据元素：数据的基本单位，在计算机中通常作为一个整体进行考虑和处理</p>
+<p>数据项：组成数据元素的、有独立含义的、不可分割的最小单位</p>
+<p>数据对象：性质相同的数据元素的集合</p>
+<p>数据结构：相互之间存在一种或多种特定关系的数据元素的集合</p>
+<h2 id="逻辑结构"><a class="markdownIt-Anchor" href="#逻辑结构"></a> 逻辑结构：</h2>
+<ol>
+<li>
+<p>集合结构</p>
+<p>除了“属于同一集合”外没有其他关系，如：确定一名学生是否为班级成员，只需要把班级看成一个集合结构</p>
+</li>
+<li>
+<p>线性结构</p>
+<p>存在一对一的关系，如：将学生信息按照入学时间顺序进行排列</p>
+</li>
+<li>
+<p>树结构</p>
+<p>存在一对多的关系，如：班长管理多个组长，组长管理多个组员</p>
+</li>
+<li>
+<p>图结构或网结构</p>
+<p>存在多对多的关系，如：同学之间的朋友关系，任何两个同学都可以是朋友</p>
+</li>
+</ol>
+<h2 id="存储结构"><a class="markdownIt-Anchor" href="#存储结构"></a> 存储结构：</h2>
+<ol>
+<li>
+<p>顺序存储结构</p>
+<p>  借助元素在存储器中的相对位置来表示数据元素之间的逻辑关系，要求所有元素依次存放在一片连续的存储空间中，以数组来描述</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">地址</th>
+<th style="text-align:center">学号</th>
+<th style="text-align:center">姓名</th>
+<th style="text-align:center">性别</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">0</td>
+<td style="text-align:center">180205501</td>
+<td style="text-align:center">张三</td>
+<td style="text-align:center">男</td>
+</tr>
+<tr>
+<td style="text-align:center">50</td>
+<td style="text-align:center">180205502</td>
+<td style="text-align:center">李四</td>
+<td style="text-align:center">男</td>
+</tr>
+<tr>
+<td style="text-align:center">100</td>
+<td style="text-align:center">180205515</td>
+<td style="text-align:center">王五</td>
+<td style="text-align:center">男</td>
+</tr>
+<tr>
+<td style="text-align:center">150</td>
+<td style="text-align:center">180205516</td>
+<td style="text-align:center">小红</td>
+<td style="text-align:center">女</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>链式存储结构</p>
+<p>  给每个元素节点附加指针字段，用于存放后续元素的存储地址，无需占据一整块存储空间，以指针来描述</p>
+</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">地址</th>
+<th style="text-align:center">学号</th>
+<th style="text-align:center">姓名</th>
+<th style="text-align:center">性别</th>
+<th style="text-align:center">后继结点的首地址</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">0</td>
+<td style="text-align:center">180205501</td>
+<td style="text-align:center">张三</td>
+<td style="text-align:center">男</td>
+<td style="text-align:center">100</td>
+</tr>
+<tr>
+<td style="text-align:center">50</td>
+<td style="text-align:center">180205502</td>
+<td style="text-align:center">李四</td>
+<td style="text-align:center">男</td>
+<td style="text-align:center">∧</td>
+</tr>
+<tr>
+<td style="text-align:center">100</td>
+<td style="text-align:center">180205515</td>
+<td style="text-align:center">王五</td>
+<td style="text-align:center">男</td>
+<td style="text-align:center">150</td>
+</tr>
+<tr>
+<td style="text-align:center">150</td>
+<td style="text-align:center">180205516</td>
+<td style="text-align:center">小红</td>
+<td style="text-align:center">女</td>
+<td style="text-align:center">50</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<p>数据类型：高级程序设计语言中的基本概念，如C语言中的整形变量，加减乘除等算术运算等</p>
+<p>抽象数据类型（ADT）:一般指由用户定义的、表示应用问题的数学模型，以及定义在这个模型上的一组操作的总称，具体包括：数据对象、数据对象上关系的集合以及对数据对象的基本操作的集合</p>
+<p>定义格式：</p>
+<div class="hljs"><pre><code class="hljs bnf">ADT 抽象数据类型名&#123;
+    数据对象：<span class="hljs-attribute">&lt;数据对象的定义&gt;</span>
+    数据关系：<span class="hljs-attribute">&lt;数据关系的定义&gt;</span>
+   	基本操作：<span class="hljs-attribute">&lt;基本操作的定义&gt;</span>
+&#125;ADT 抽象数据类型名</code></pre></div>
+<p>数据对象和数据关系的定义采用数学符号和自然语言描述，其基本操作的定义格式为：</p>
+<div class="hljs"><pre><code class="hljs awk">基本操作名（参数表）
+	初始条件：&lt;初始条件描述&gt;	<span class="hljs-regexp">//</span>描述了操作执行之前数据结构和参数应满足的条件，若初始条件为空则省略
+	操作结果：&lt;操作结果描述&gt;	<span class="hljs-regexp">//</span>说明了操作正常完成后数据结构的变化状况和应返回的结果</code></pre></div>
+<p>赋值参数只为操作提供输入值；引用参数以 “&amp;” 打头，除可以提供输入值外，还将返回操作结果；</p>
+<h1 id="二-抽象数据类型的表示与实现"><a class="markdownIt-Anchor" href="#二-抽象数据类型的表示与实现"></a> 二、抽象数据类型的表示与实现</h1>
+<p>  抽象数据类型的概念与面向对象方法的思想是一致的，抽象数据类型<strong>独立于具体实现，将数据和操作封装在一起</strong>，使得用户程序只能通过抽象数据类型的定义的某些操作来访问其中的数据，从而<strong>实现信息隐藏</strong>。</p>
+<p>抽象数据类型相当于在概念层（或称为抽象层）描述问题，而类相当于在实现层描述问题。</p>
+<div class="note note-warning">
+            <p>讨论的数据结构以及算法介于C语言与伪码之间的类C语言作为描述工具，便于算法的描述。</p><p>如下为代码说明</p>
+          </div>
+<h2 id="1预定义常量及类型"><a class="markdownIt-Anchor" href="#1预定义常量及类型"></a> （1）预定义常量及类型</h2>
+<div class="hljs"><pre><code class="hljs csharp"><span class="hljs-comment">//函数结果状态代码</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> OK 1</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> ERROR 0</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> OVERFLOW -2</span>
+<span class="hljs-comment">//Status 是函数返回值类型，其值是函数结果状态代码</span>
+<span class="hljs-keyword">typeof</span> <span class="hljs-built_in">int</span> Status;</code></pre></div>
+<h2 id="2数据结构与数据元素类型"><a class="markdownIt-Anchor" href="#2数据结构与数据元素类型"></a> （2）数据结构与数据元素类型</h2>
+<p>  数据结构的表示（存储结构）用类型定义（typedef）描述；数据元素类型约定为 ElemType，由用户在使用该数据类型时自己定义。</p>
+<h2 id="3基本操作的算法"><a class="markdownIt-Anchor" href="#3基本操作的算法"></a> （3）基本操作的算法</h2>
+<div class="hljs"><pre><code class="hljs awk">函数类型 函数名(函数参数表)&#123;
+	<span class="hljs-regexp">//</span>算法说明
+	语句序列
+&#125;<span class="hljs-regexp">//</span>函数名</code></pre></div>
+<p>在形参表中，以 ”&amp;“ 打头的参数即为引用参数。传递引用给函数与传递指针的效果相同。（类C++）</p>
+<h2 id="4内存的动态分配与释放"><a class="markdownIt-Anchor" href="#4内存的动态分配与释放"></a> （4）内存的动态分配与释放</h2>
+<p>使用 new 和 delete 动态分配和释放内存空间：</p>
+<p>分配空间	<code>指针变量 = new指针类型;</code></p>
+<p>释放空间	<code>delete 指针变量;</code></p>
+<h2 id="5赋值语句"><a class="markdownIt-Anchor" href="#5赋值语句"></a> （5）赋值语句</h2>
+<p>简单赋值	<code>变量名 = 表达式;</code></p>
+<p>串联赋值	<code>变量名1 = 变量名2 = ··· = 变量名n = 表达式;</code></p>
+<p>成组赋值	<code>(变量名1, ···, 变量名n)=(表达式1, ···, 表达式n);</code></p>
+<p>结构赋值	<code>结构名1 = 结构名2;</code></p>
+<p>       <code>结构名 = (值1, 值2, ···, 值n)</code></p>
+<p>条件赋值	<code>变量名 = 条件表达式 ? 表达式 T: 表达式F;</code></p>
+<p>交换赋值	<code>变量名1 &lt;--&gt; 变量名2;</code></p>
+<h2 id="6选择语句"><a class="markdownIt-Anchor" href="#6选择语句"></a> （6）选择语句</h2>
+<p>条件语句1	<code>if (表达式) 语句;</code></p>
+<p>条件语句2	<code>if (表达式) 语句;</code></p>
+<p>       <code>else 语句;</code></p>
+<p>开关语句	<code>switch (表达式)</code></p>
+<p>       <code>&#123;</code></p>
+<p>        <code>case 值1: 语句序列1; break;</code></p>
+<p>        <code>case 值2: 语句序列2; break;</code></p>
+<p>        <code>···</code></p>
+<p>        <code>case 值n: 语句序列n; break;</code></p>
+<p>        <code>default: 语句序列n+1;</code></p>
+<p>      <code>&#125;</code></p>
+<h2 id="7循环语句"><a class="markdownIt-Anchor" href="#7循环语句"></a> （7）循环语句</h2>
+<p>for 语句	<code>for(表达式1; 条件; 表达式2) 语句;</code></p>
+<p>while 语句	<code>while (条件) 语句;</code></p>
+<p>do-while语句	<code>do &#123;</code></p>
+<p>          <code>语句序列;</code></p>
+<p>          <code>&#125; while (条件);</code></p>
+<h2 id="8结束语句"><a class="markdownIt-Anchor" href="#8结束语句"></a> （8）结束语句</h2>
+<p>函数结束语句	<code>return 表达式;</code></p>
+<p>          <code>return;</code></p>
+<p>          <code>case 或循环结束语句 break;</code></p>
+<p>          <code>异常结束语句 exit (异常代码);</code></p>
+<h2 id="9输入输出语句"><a class="markdownIt-Anchor" href="#9输入输出语句"></a> （9）输入输出语句</h2>
+<p>输入输出语句使用 C++ 流式输入输出的形式</p>
+<p>输入语句	<code>cin &gt;&gt; 变量1 &gt;&gt; ··· &gt;&gt; 变量n;</code></p>
+<p>输出语句	<code>cout &lt;&lt; 表达式1 &lt;&lt; ··· &lt;&lt; 表达式n;</code></p>
+<h2 id="10基本函数"><a class="markdownIt-Anchor" href="#10基本函数"></a> （10）基本函数</h2>
+<p>求最大值	<code>Max (表达式1, ··· , 表达式n)</code></p>
+<p>求最小值	<code>Min (表达式1, ··· , 表达式n)</code></p>
+<hr>
+<p>以复数为例，给出完整的抽象数据类型的定义、表现和实现。</p>
+<p>（1）定义部分</p>
+<div class="hljs"><pre><code class="hljs mathematica"><span class="hljs-variable">ADT</span> <span class="hljs-built_in">Complex</span><span class="hljs-punctuation">&#123;</span>
+	数据对象：<span class="hljs-built_in">D</span><span class="hljs-operator">=</span><span class="hljs-punctuation">&#123;</span><span class="hljs-variable">e1</span><span class="hljs-operator">,</span><span class="hljs-variable">e2</span><span class="hljs-operator">|</span><span class="hljs-variable">e1</span><span class="hljs-operator">,</span><span class="hljs-variable">e2</span>∈<span class="hljs-variable">R</span><span class="hljs-operator">,</span><span class="hljs-variable">R</span>是实数集<span class="hljs-punctuation">&#125;</span>
+	数据关系：<span class="hljs-variable">S</span><span class="hljs-operator">=</span><span class="hljs-punctuation">&#123;</span><span class="hljs-operator">&lt;</span><span class="hljs-variable">e1</span><span class="hljs-operator">,</span><span class="hljs-variable">e2</span><span class="hljs-operator">&gt;|</span><span class="hljs-variable">e1</span>是复数的实部，<span class="hljs-variable">e2</span>是复数的虚部<span class="hljs-punctuation">&#125;</span>
+	基本操作：
+		<span class="hljs-variable">Creat</span><span class="hljs-punctuation">(</span><span class="hljs-variable">$C</span><span class="hljs-operator">,</span><span class="hljs-variable">x</span><span class="hljs-operator">,</span><span class="hljs-variable">y</span><span class="hljs-punctuation">)</span>
+			操作结果：构造复数<span class="hljs-built_in">C</span>，其实部和虚部分别被赋以参数<span class="hljs-variable">x</span>和<span class="hljs-variable">y</span>的值。
+		<span class="hljs-variable">GetReal</span><span class="hljs-punctuation">(</span><span class="hljs-built_in">C</span><span class="hljs-punctuation">)</span>
+			初始条件：复数<span class="hljs-built_in">C</span>已存在。
+			操作结果：返回复数<span class="hljs-built_in">C</span>的实部值。
+		<span class="hljs-variable">GetImg</span><span class="hljs-punctuation">(</span><span class="hljs-built_in">C</span><span class="hljs-punctuation">)</span>
+			初始条件：复数<span class="hljs-built_in">C</span>已存在。
+			操作结果：返回复数<span class="hljs-built_in">C</span>的虚部值。
+		<span class="hljs-variable">Add</span><span class="hljs-punctuation">(</span><span class="hljs-variable">C1</span><span class="hljs-operator">,</span><span class="hljs-variable">C2</span><span class="hljs-punctuation">)</span>
+			初始条件：<span class="hljs-variable">C1</span><span class="hljs-operator">,</span><span class="hljs-variable">C2</span>是复数。
+			操作结果：返回两个复数<span class="hljs-variable">C1</span>和<span class="hljs-variable">C2</span>的和
+		<span class="hljs-variable">Sub</span><span class="hljs-punctuation">(</span><span class="hljs-variable">C1</span><span class="hljs-operator">,</span><span class="hljs-variable">C2</span><span class="hljs-punctuation">)</span>
+			初始条件：<span class="hljs-variable">C1</span><span class="hljs-operator">,</span><span class="hljs-variable">C2</span>是复数。
+			操作结果：返回两个复数<span class="hljs-variable">C1</span>和<span class="hljs-variable">C2</span>的差
+<span class="hljs-punctuation">&#125;</span><span class="hljs-variable">ADT</span> <span class="hljs-built_in">Complex</span></code></pre></div>
+<p>（2）表示部分</p>
+<div class="hljs"><pre><code class="hljs c"><span class="hljs-keyword">typedef</span> <span class="hljs-class"><span class="hljs-keyword">struct</span>&#123;</span>			<span class="hljs-comment">//复数类型</span>
+	<span class="hljs-keyword">float</span> Realpart;		<span class="hljs-comment">//实部</span>
+	<span class="hljs-keyword">float</span> Imagepart;	<span class="hljs-comment">//虚部</span>
+&#125;Complex;</code></pre></div>
+<p>（3）实现部分</p>
+<div class="hljs"><pre><code class="hljs c"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Create</span><span class="hljs-params">(&amp;Complex C, <span class="hljs-keyword">float</span> x, <span class="hljs-keyword">float</span> y)</span></span>&#123;
+	<span class="hljs-comment">//构造一个复数</span>
+	C.Realpart=x;
+	C.Imagepart=y;
+&#125;
+<span class="hljs-function"><span class="hljs-keyword">float</span> <span class="hljs-title">GetReal</span><span class="hljs-params">(Complex C)</span></span>&#123;
+	<span class="hljs-comment">//取复数C=x+yi的实部</span>
+	<span class="hljs-keyword">return</span> C.Realpart;
+&#125;
+<span class="hljs-function"><span class="hljs-keyword">float</span> <span class="hljs-title">GetImage</span><span class="hljs-params">(Complex C)</span></span>&#123;
+	<span class="hljs-comment">//取复数C=x+yi的虚部</span>
+	<span class="hljs-keyword">return</span> C.Imagepart;
+&#125;
+<span class="hljs-function">Complex <span class="hljs-title">Add</span><span class="hljs-params">(Complex C1, Complex C2)</span></span>&#123;
+	<span class="hljs-comment">//求两个复数C1和C2的和sum</span>
+    Complex sum;
+	sum.Realpart=C1.Realpart+C2.Realpart;
+	sum.Imagepaet=C1.Imagepart+C2.Imagepart;
+	<span class="hljs-keyword">return</span> sum;
+&#125;
+<span class="hljs-function">Complex <span class="hljs-title">Sub</span><span class="hljs-params">(Complex C1, Complex C2)</span></span>&#123;
+	<span class="hljs-comment">//求两个复数C1和C2的差difference</span>
+    Complex difference;
+	difference.Realpart=C1.Realpart-C2.Realpart;
+	difference.Imagepaet=C1.Imagepart-C2.Imagepart;
+	<span class="hljs-keyword">return</span> difference;
+&#125;</code></pre></div>
+<h1 id="三-算法和算法分析"><a class="markdownIt-Anchor" href="#三-算法和算法分析"></a> 三、算法和算法分析</h1>
+<h2 id="1算法的定义和特性"><a class="markdownIt-Anchor" href="#1算法的定义和特性"></a> 1.算法的定义和特性</h2>
+<p>一个算法必须满足一下五个重要特性：</p>
+<p>  （1）有穷性。一个算法必须总是在执行有穷步后结束，每一步都必须在有穷时间内完成</p>
+<p>  （2）确定性。对于每种情况下所应该执行的操作，在算法中都应该有确切的规定，不会产生二义性，使算法的执行者或阅读者都能明确其含义及如何执行</p>
+<p>  （3）可行性。算法中的所有操作都可以通过已经实现的基本操作运算执行有限次来实现。</p>
+<p>  （4）输入。一个算法有零个或多个输入。</p>
+<p>  （5）输出。一个算法有一个或多个输出，无输出的算法没有任何意义。</p>
+<h2 id="2评价算法优劣的基本标准"><a class="markdownIt-Anchor" href="#2评价算法优劣的基本标准"></a> 2.评价算法优劣的基本标准</h2>
+<p>  （1）正确性。在合理的数据输入下，能够在有限的运行时间内得到正确的结果</p>
+<p>  （2）可读性。一个好的算法，首先应便于人们理解和相互交流，其次才是机器可执行性。可读性强的算法有助于人们对算法的理解，而难懂的算法易于隐藏错误，且难于调试和修改</p>
+<p>  （3）健壮性。当输入的数据非法时，好的算法能适当的做出正确反映或进行相应处理，而不会产生一些莫名其妙的输出结果。</p>
+<p>  （4）高效性。包括时间和空间两个方面。时间高效指算法设计合理，执行效率高，可以用时间复杂度来度量；空间高效指算法占用存储容量合理，可以用空间复杂度来度量</p>
+<h2 id="3算法的时间复杂度"><a class="markdownIt-Anchor" href="#3算法的时间复杂度"></a> 3.算法的时间复杂度</h2>
+<p>  算法分析的目的在于看算法实际是否可行，并在同一问题存在多个算法时，可以进行时间和空间性能上的比较，以便从中挑选出较优的算法</p>
+<p>  衡量算法效率的方法有两类：</p>
+<p>  <strong>事后统计法</strong>：先将算法实现，然后测算其时间和空间开销。</p>
+<p>  <strong>事前分析估算法</strong>：通过计算算法的渐进复杂度来衡量算法的效率。</p>
+<h3 id="31-问题规模和语句频度"><a class="markdownIt-Anchor" href="#31-问题规模和语句频度"></a> 3.1 问题规模和语句频度</h3>
+<p>  问题规模：是算法求解问题输入量的多少，是问题大小的本质表示。一般用整数 n 表示。n 越大算法的执行时间越长</p>
+<p>  语句频度：一条语句的重复执行次数</p>
+<p>  一个算法的执行时间大致上等于其所有语句执行时间的总和，而语句的执行时间则为该条语句的重复执行次数和执行一次所需时间的乘机。</p>
+<h3 id="32-算法的时间复杂度定义"><a class="markdownIt-Anchor" href="#32-算法的时间复杂度定义"></a> 3.2 算法的时间复杂度定义</h3>
+<p>  为了客观反映一个算法的执行时间，可以只用算法中的“基本语句”的执行次数来度量算法的工作量。</p>
+<p>  基本语句：算法中重复执行次数和算法的执行时间成<span style="color:red">正比</span>的语句，它对算法运行时间的贡献最大。</p>
+<p>  算法中基本语句重复执行的次数是问题规模 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">n</span></span></span></span> 的某个函数 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>f</mi><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">f(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mclose">)</span></span></span></span> ，算法的时间度量记做：</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>T</mi><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo><mo>=</mo><mi>O</mi><mo stretchy="false">(</mo><mi>f</mi><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">T(n)=O(f(n))
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">T</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mclose">)</span><span class="mclose">)</span></span></span></span></span></p>
+<p>  算法的时间复杂度（算法的渐进时间复杂度）：算法执行时间的增长率和 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>f</mi><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">f(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mclose">)</span></span></span></span> 的增长率相同</p>
+<p>  “O” ：若 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>T</mi><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">T(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">T</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mclose">)</span></span></span></span> 和 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>f</mi><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">f(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mclose">)</span></span></span></span> 是定义在正整数集合上的两个函数，则 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>T</mi><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo><mo>=</mo><mi>O</mi><mo stretchy="false">(</mo><mi>f</mi><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">T(n)=O(f(n))</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">T</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mclose">)</span><span class="mclose">)</span></span></span></span> 表示存在正的常数 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>C</mi></mrow><annotation encoding="application/x-tex">C</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.07153em;">C</span></span></span></span> 和 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>n</mi><mn>0</mn></msub></mrow><annotation encoding="application/x-tex">n_0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">n</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>使得当<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi><mo>≥</mo><msub><mi>n</mi><mn>0</mn></msub></mrow><annotation encoding="application/x-tex">n\ge n_0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7719400000000001em;vertical-align:-0.13597em;"></span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≥</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">n</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>时都满足$0\leq T(n)\leq Cf(n) $。</p>
+<p>  &quot;O&quot;用来描述增长率的上限，它表示当问题规模<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi><mo>&gt;</mo><msub><mi>n</mi><mn>0</mn></msub></mrow><annotation encoding="application/x-tex">n&gt;n_0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5782em;vertical-align:-0.0391em;"></span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&gt;</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">n</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>时，算法的执行时间不会超过<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>f</mi><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">f(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mclose">)</span></span></span></span>。</p>
+<h3 id="33-算法的时间复杂度分析"><a class="markdownIt-Anchor" href="#33-算法的时间复杂度分析"></a> 3.3 算法的时间复杂度分析</h3>
+<p>  基本方法：找出所有语句中语句频度最大的那条语句作为基本语句，计算基本语句的频度即可得到问题规模<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">n</span></span></span></span>的某个函数<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>f</mi><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">f(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mclose">)</span></span></span></span>，取其数量级用符号&quot;O&quot;表示即可。</p>
+<p>  <strong>定理1.1</strong>  若<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>f</mi><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo><mo>=</mo><msub><mi>a</mi><mi>m</mi></msub><msup><mi>n</mi><mi>n</mi></msup><mo>+</mo><msub><mi>a</mi><mrow><mi>m</mi><mo>−</mo><mn>1</mn></mrow></msub><msup><mi>n</mi><mrow><mi>n</mi><mo>−</mo><mn>1</mn></mrow></msup><mo>+</mo><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mo>+</mo><msub><mi>a</mi><mn>1</mn></msub><mi>n</mi><mo>+</mo><msub><mi>a</mi><mn>0</mn></msub></mrow><annotation encoding="application/x-tex">f(n)=a_mn^n+a_{m-1}n^{n-1}+...+a_1n+a_0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.814392em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">m</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord"><span class="mord mathdefault">n</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.664392em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">n</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1.0224389999999999em;vertical-align:-0.208331em;"></span><span class="mord"><span class="mord mathdefault">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.301108em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">m</span><span class="mbin mtight">−</span><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.208331em;"><span></span></span></span></span></span></span><span class="mord"><span class="mord mathdefault">n</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">n</span><span class="mbin mtight">−</span><span class="mord mtight">1</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord">.</span><span class="mord">.</span><span class="mord">.</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.73333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>是一个m次多项式，则<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>T</mi><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo><mo>=</mo><mi>O</mi><mo stretchy="false">(</mo><msup><mi>n</mi><mi>m</mi></msup><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">T(n)=O(n^m)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">T</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord"><span class="mord mathdefault">n</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.664392em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">m</span></span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span>。</p>
+<p>  在计算算法的时间复杂度时，可以<span style="color:red">忽略所有低次幂项和最高次幂的系数</span>，这样可以简化算法分析。</p>
+<div class="hljs"><pre><code class="hljs C"><span class="hljs-comment">//常量阶示例</span>
+&#123;
+    x++;
+    s=<span class="hljs-number">0</span>;
+&#125;</code></pre></div>
+<p>  两条语句的频度均为1，算法的执行时间是一个与问题规模<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">n</span></span></span></span>无关的常数，所以算法的时间复杂度为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>T</mi><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo><mo>=</mo><mi>O</mi><mo stretchy="false">(</mo><mn>1</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">T(n)=O(1)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">T</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord">1</span><span class="mclose">)</span></span></span></span>，称为常量阶。</p>
+<p>  当算法的执行时间不随问题规模<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">n</span></span></span></span>的增加而增长，算法中的语句频度就是一个常数。即使常数再大，算法的时间复杂度仍旧是<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mn>1</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(1)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord">1</span><span class="mclose">)</span></span></span></span>。</p>
+<div class="hljs"><pre><code class="hljs C"><span class="hljs-comment">//当程序改为如下时：</span>
+<span class="hljs-keyword">for</span>(i=<span class="hljs-number">0</span>;i&lt;<span class="hljs-number">10000</span>;i++)&#123;
+	x++;
+	s=<span class="hljs-number">0</span>;
+&#125;;
+<span class="hljs-comment">//算法的时间复杂度仍旧为O(1)</span></code></pre></div>
+<div class="hljs"><pre><code class="hljs C"><span class="hljs-comment">//线性阶示例</span>
+<span class="hljs-keyword">for</span>(i=<span class="hljs-number">0</span>;i&lt;n;i++)&#123;
+    x++；
+    s=<span class="hljs-number">0</span>;
+&#125;</code></pre></div>
+<p>  循环体内两条基本语句频度均为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>f</mi><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo><mo>=</mo><mi>n</mi></mrow><annotation encoding="application/x-tex">f(n)=n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">n</span></span></span></span>所以算法的时间复杂度为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>T</mi><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo><mo>=</mo><mi>o</mi><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">T(n)=o(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">T</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">o</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mclose">)</span></span></span></span>，称为线性阶。</p>
+<div class="hljs"><pre><code class="hljs C"><span class="hljs-comment">//平方阶示例</span>
+x=<span class="hljs-number">0</span>;y=<span class="hljs-number">0</span>;
+<span class="hljs-keyword">for</span>(k=<span class="hljs-number">1</span>;k&lt;=n;k++)
+	x++;
+<span class="hljs-keyword">for</span>(i=<span class="hljs-number">1</span>;i&lt;=n;i++)
+    <span class="hljs-keyword">for</span>(j=<span class="hljs-number">1</span>;j&lt;=n;j++)
+        y++;</code></pre></div>
+<p>  对循环语句只需要考虑循环体中语句的执行次数，以上程序段中频度最大的语句是第二个嵌套循环体，其频度为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>f</mi><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo><mo>=</mo><msup><mi>n</mi><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">f(n)=n^2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord mathdefault">n</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span>，因此该算法的时间复杂度为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>T</mi><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo><mo>=</mo><mi>o</mi><mo stretchy="false">(</mo><msup><mi>n</mi><mn>2</mn></msup><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">T(n)=o(n^2)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">T</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.064108em;vertical-align:-0.25em;"></span><span class="mord mathdefault">o</span><span class="mopen">(</span><span class="mord"><span class="mord mathdefault">n</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span>，称为平方阶。</p>
+<p>  当有若干个循环语句时，算法的时间复杂度是由最深层循环内的基本语句的频度<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>f</mi><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">f(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mclose">)</span></span></span></span>决定的。</p>
+<div class="hljs"><pre><code class="hljs C"><span class="hljs-comment">//立方阶示例</span>
+x=<span class="hljs-number">1</span>;
+<span class="hljs-keyword">for</span>(i=<span class="hljs-number">1</span>;i&lt;n;i++)
+    <span class="hljs-keyword">for</span>(j=<span class="hljs-number">1</span>;j&lt;=i;j++)
+        <span class="hljs-keyword">for</span>(k=<span class="hljs-number">1</span>;k&lt;=j;k++)
+            x++;</code></pre></div>
+<p>  该算法中频度最大的语句是x++，由此我们可以得出该算法的时间复杂度为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>T</mi><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo><mo>=</mo><mi>o</mi><mo stretchy="false">(</mo><msup><mi>n</mi><mn>3</mn></msup><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">T(n)=o(n^3)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">T</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.064108em;vertical-align:-0.25em;"></span><span class="mord mathdefault">o</span><span class="mopen">(</span><span class="mord"><span class="mord mathdefault">n</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">3</span></span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span>，称为立方阶。</p>
+<div class="hljs"><pre><code class="hljs C"><span class="hljs-comment">//对数阶示例</span>
+<span class="hljs-keyword">for</span>(i=<span class="hljs-number">1</span>;i&lt;=n;i=i*<span class="hljs-number">2</span>)&#123;
+    x++;
+    s=<span class="hljs-number">0</span>;
+&#125;</code></pre></div>
+<p>  该循环体内两条基本语句的频度为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>f</mi><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">f(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mclose">)</span></span></span></span>，则有<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mn>2</mn><mrow><mi>f</mi><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo></mrow></msup><mo>≤</mo><mi>n</mi></mrow><annotation encoding="application/x-tex">2^{f(n)}\leq n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.0239699999999998em;vertical-align:-0.13597em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8879999999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.10764em;">f</span><span class="mopen mtight">(</span><span class="mord mathdefault mtight">n</span><span class="mclose mtight">)</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">n</span></span></span></span>，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>f</mi><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo><mo>≤</mo><mi>l</mi><mi>o</mi><msub><mi>g</mi><mn>2</mn></msub><mi>n</mi></mrow><annotation encoding="application/x-tex">f(n)\leq log_2n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">o</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.03588em;">g</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.03588em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord mathdefault">n</span></span></span></span>，所以算法的时间复杂度为</p>
+<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>T</mi><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo><mo>=</mo><mi>O</mi><mo stretchy="false">(</mo><mi>l</mi><mi>o</mi><msub><mi>g</mi><mn>2</mn></msub><mi>n</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">T(n)=O(log_2n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">T</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">o</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.03588em;">g</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.03588em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord mathdefault">n</span><span class="mclose">)</span></span></span></span>，称为对数阶。</p>
+<p>  </p>
+
+            </article>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/SSONNGG.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a>
+                    
+                      <a class="hover-with-bg" href="/SSONNGG.github.io/categories/C/">C</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/SSONNGG.github.io/tags/%E7%AC%94%E8%AE%B0/">笔记</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <div class="post-prev col-6">
+                    
+                    
+                      <a href="/SSONNGG.github.io/2020/07/21/%E8%BE%A9%E8%AE%BA%E8%AE%B2%E4%B9%89%E4%BA%8C-%E7%AB%8B%E8%AE%BA%E6%A1%86%E6%9E%B6/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">辩论讲义 | [第二章]立论框架</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </div>
+                  <div class="post-next col-6">
+                    
+                    
+                      <a href="/SSONNGG.github.io/2020/07/14/Ecplise%E5%88%9B%E5%BB%BA%E6%96%B0%E5%B7%A5%E4%BD%9C%E7%A9%BA%E9%97%B4%E6%89%80%E9%9C%80%E5%81%9A%E7%9A%84%E8%AE%BE%E7%BD%AE-Java-JavaWeb/">
+                        <span class="hidden-mobile">Ecplise创建新工作空间所需做的设置 (Java & JavaWeb)</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </div>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <div class="comments" id="comments">
+                
+                
+  <div id="vcomments"></div>
+  <script type="text/javascript">
+    function loadValine() {
+      addScript('https://cdn.staticfile.org/valine/1.4.14/Valine.min.js', function () {
+        new Valine({
+          el: "#vcomments",
+          app_id: "w7L8Qmyb6xikG44YtpD1odkC-gzGzoHsz",
+          app_key: "vn5zjxdfo6xNiCYuivgvGGCP",
+          placeholder: "说点什么",
+          path: window.location.pathname,
+          avatar: "retro",
+          meta: ["nick","mail","link"],
+          pageSize: "10",
+          lang: "zh-CN",
+          highlight: false,
+          recordIP: false,
+          serverURLs: "",
+        });
+      });
+    }
+    createObserver(loadValine, 'vcomments');
+  </script>
+  <noscript>Please enable JavaScript to view the <a target="_blank" href="https://valine.js.org" rel="nofollow noopener noopener">comments
+      powered by Valine.</a></noscript>
+
+
+              </div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
+    </div>
+    
+
+    
+
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/SSONNGG.github.io/js/debouncer.js" ></script>
+<script  src="/SSONNGG.github.io/js/main.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/SSONNGG.github.io/js/lazyload.js" ></script>
+  
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/SSONNGG.github.io/js/clipboard-use.js" ></script>
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: 'article.markdown-body',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "学习笔记 | 数据结构（一）基本定义与基本概念&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/SSONNGG.github.io/js/local-search.js" ></script>
+  <script>
+    var path = "/SSONNGG.github.io/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+  
+
+  
+    <!-- KaTeX -->
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/KaTeX/0.11.1/katex.min.css" />
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
