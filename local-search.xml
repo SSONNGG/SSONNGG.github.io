@@ -4,6 +4,35 @@
   
   
   <entry>
+    <title>算法-并查集</title>
+    <link href="/SSONNGG.github.io/2021/01/22/%E7%AE%97%E6%B3%95-%E5%B9%B6%E6%9F%A5%E9%9B%86/"/>
+    <url>/SSONNGG.github.io/2021/01/22/%E7%AE%97%E6%B3%95-%E5%B9%B6%E6%9F%A5%E9%9B%86/</url>
+    
+    <content type="html"><![CDATA[<p>  原文地址：<a href="https://bbs.codeaha.com/forum.php?mod=viewthread&amp;tid=11223"><strong>零基础彻底弄懂&quot;并查集&quot;</strong></a></p><p>  最近在 LeetCode 上尝试提升自己的算法能力，在研究过程中，评论区常常提到一个词——“并查集”。秉着好奇的心理，我就尝试去了解了一下，发现这个算法还是挺重要挺有难度的，特此转载这篇文章，非常感谢文章作者（其中也有某些自己的思考）。感谢！</p><p>  并查集也称为不相交集数据结构。此算法的发展经历了十多年，研究它的人也很多，其中 Robert E. Tarjan 做出了很大的贡献。在此之前 John E. Hopcroft 和 Jeffrey D. Ullman 也进行了大量的分析。你是不是又感觉Robert E. Tarjan和John E. Hopcroft很熟悉？没错，就是发明了深度优先搜索的两个人——1986年的图灵奖得主。其实树还有很多神奇的用法，比如：线段树、树状数组、Trie树（字典树）、二叉搜索树、红黑树（是一种平衡二叉搜索树）等等。</p><p>  咱们从一个故事说起——解密犯罪团伙。</p><p><img src="https://cdn.jsdelivr.net/gh/chen-xing/figure_bed/cdn/20210122145418197.png" alt="1"></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>数据结构</category>
+      
+      <category>C</category>
+      
+      <category>算法</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>笔记</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>学习笔记 | 《数据结构》（二）线性表</title>
     <link href="/SSONNGG.github.io/2021/01/08/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E3%80%8A%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E3%80%8B%E7%AC%AC2%E7%AB%A0%E7%BA%BF%E6%80%A7%E8%A1%A8/"/>
     <url>/SSONNGG.github.io/2021/01/08/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E3%80%8A%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E3%80%8B%E7%AC%AC2%E7%AB%A0%E7%BA%BF%E6%80%A7%E8%A1%A8/</url>
