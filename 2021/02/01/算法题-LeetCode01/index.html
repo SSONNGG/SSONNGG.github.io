@@ -163,7 +163,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      888 字
+      931 字
     </span>
   
 
@@ -287,17 +287,17 @@
         <span class="hljs-keyword">int</span> pivot_index=left+random_num.nextInt(right-left);
         pivot_index=partition(left,right,pivot_index);
         <span class="hljs-comment">//根据轴值位置与K的相对关系，寻找对应的半边</span>
-        <span class="hljs-keyword">if</span>(k_smallest==pivot_index)
+        <span class="hljs-keyword">if</span>(k_smallest==pivot_index)	<span class="hljs-comment">//当轴值位置等于k时，直接返回这个值</span>
             <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.nums[k_smallest];
-        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(k_smallest&lt;pivot_index)
+        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(k_smallest&lt;pivot_index)	<span class="hljs-comment">//当k小于轴值，从数组左边寻找</span>
             <span class="hljs-keyword">return</span> quickselect(left,pivot_index-<span class="hljs-number">1</span>,k_smallest);
-            <span class="hljs-keyword">return</span> quickselect(pivot_index+<span class="hljs-number">1</span>,right,k_smallest);
+        <span class="hljs-keyword">return</span> quickselect(pivot_index+<span class="hljs-number">1</span>,right,k_smallest);<span class="hljs-comment">//当k大于轴值，从数组右边寻找</span>
     &#125;
 
     <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">findKthLargest</span><span class="hljs-params">(<span class="hljs-keyword">int</span> [] nums,<span class="hljs-keyword">int</span> k)</span></span>&#123;
         <span class="hljs-keyword">this</span>.nums=nums;
         <span class="hljs-keyword">int</span> size=nums.length;
-        <span class="hljs-comment">//做了第K大--&gt;第size-k小的转换</span>
+        <span class="hljs-comment">//将k转换为数组下标为 size-k 的数</span>
         <span class="hljs-keyword">return</span> quickselect(<span class="hljs-number">0</span>,size-<span class="hljs-number">1</span>,size-k);
     &#125;
 &#125;</code></pre></div>
