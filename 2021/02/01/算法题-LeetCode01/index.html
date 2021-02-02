@@ -163,7 +163,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      931 字
+      1.6k 字
     </span>
   
 
@@ -173,7 +173,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      11
+      21
        分钟
     </span>
   
@@ -300,6 +300,101 @@
         <span class="hljs-comment">//将k转换为数组下标为 size-k 的数</span>
         <span class="hljs-keyword">return</span> quickselect(<span class="hljs-number">0</span>,size-<span class="hljs-number">1</span>,size-k);
     &#125;
+&#125;</code></pre></div>
+<h1 id="206-反转链表"><a class="markdownIt-Anchor" href="#206-反转链表"></a> 206. 反转链表</h1>
+<h2 id="题目描述-2"><a class="markdownIt-Anchor" href="#题目描述-2"></a> 【题目描述】</h2>
+<p>反转一个单链表。</p>
+<p>示例：</p>
+<div class="hljs"><pre><code class="hljs clean">输入: <span class="hljs-number">1</span>-&gt;<span class="hljs-number">2</span>-&gt;<span class="hljs-number">3</span>-&gt;<span class="hljs-number">4</span>-&gt;<span class="hljs-number">5</span>-&gt;NULL
+输出: <span class="hljs-number">5</span>-&gt;<span class="hljs-number">4</span>-&gt;<span class="hljs-number">3</span>-&gt;<span class="hljs-number">2</span>-&gt;<span class="hljs-number">1</span>-&gt;NULL</code></pre></div>
+<h2 id="题解-2"><a class="markdownIt-Anchor" href="#题解-2"></a> 【题解】</h2>
+<h3 id="1迭代"><a class="markdownIt-Anchor" href="#1迭代"></a> 1.迭代</h3>
+<p>题目要求做到链表的反转，此时会有思路：</p>
+<p>需要两个指针 prev 与 curr</p>
+<p>最开始时：prev=null,	curr=head</p>
+<p>只需要将两个指针指向的地址也就是 curr.next 反转过来即可</p>
+<div class="hljs"><pre><code class="hljs clean"><span class="hljs-number">1</span>-&gt;<span class="hljs-number">2</span>-&gt;<span class="hljs-number">3</span>-&gt;<span class="hljs-number">4</span>-&gt;<span class="hljs-number">5</span>-&gt;NULL
+prev=null
+curr=head
+curr.next=prev
+NULL&lt;-<span class="hljs-number">1</span> -&gt; <span class="hljs-number">2</span>-&gt;<span class="hljs-number">3</span>-&gt;<span class="hljs-number">4</span>-&gt;<span class="hljs-number">5</span></code></pre></div>
+<p>curr.next=prev</p>
+<p>之后将两个指针向后移动一位持续操作知道链表结束为止。</p>
+<p>但是此时会出现一个问题：</p>
+<p>当第一个 curr.next=prev 操作完成时，此时 curr.next 后继节点是反转后的地址了，也就是链表断开了，此时curr 与 prev 不能向前移动了。</p>
+<div class="hljs"><pre><code class="hljs apache"><span class="hljs-attribute">NULL</span>&lt;-<span class="hljs-number">1</span> | <span class="hljs-number">2</span>-&gt;<span class="hljs-number">3</span>-&gt;<span class="hljs-number">4</span>-&gt;<span class="hljs-number">5</span></code></pre></div>
+<p>因此需要一个中间指针，给予一个中间节点帮助 curr 与 prev 移动到下一位</p>
+<div class="hljs"><pre><code class="hljs routeros">1-&gt;2-&gt;3-&gt;4-&gt;5-&gt;<span class="hljs-literal">NULL</span>
+<span class="hljs-attribute">prev</span>=<span class="hljs-literal">null</span>
+<span class="hljs-attribute">curr</span>=head
+<span class="hljs-attribute">next</span>=curr.next	中间指针 1-&gt;2
+curr.<span class="hljs-attribute">next</span>=prev	<span class="hljs-literal">NULL</span>&lt;-1
+prev = curr		prev向后移动
+curr = next		curr向后移动
+不断循环操作即可
+直到<span class="hljs-attribute">curr</span>=<span class="hljs-literal">NULL</span></code></pre></div>
+<p>代码如下：</p>
+<div class="hljs"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> ListNode <span class="hljs-title">reverseList</span><span class="hljs-params">(ListNode head)</span> </span>&#123;
+    <span class="hljs-comment">//定义指针</span>
+    ListNode prev = <span class="hljs-keyword">null</span>;
+    ListNode curr = head;	<span class="hljs-comment">//用于遍历每个节点</span>
+    <span class="hljs-keyword">while</span> (curr != <span class="hljs-keyword">null</span>) &#123;
+        ListNode next = curr.next;	<span class="hljs-comment">//记住这个节点的下一个节点</span>
+        curr.next = prev;			<span class="hljs-comment">//将节点反转</span>
+        prev = curr;				<span class="hljs-comment">//向后移动</span>
+        curr = next;
+    &#125;
+    <span class="hljs-keyword">return</span> prev;		<span class="hljs-comment">//执行结束后，表头在prev，因此要返回prev的值</span>
+&#125;</code></pre></div>
+<h3 id="2递归"><a class="markdownIt-Anchor" href="#2递归"></a> 2.递归</h3>
+<p>递归的流程大致如下</p>
+<div class="hljs"><pre><code class="hljs clean"><span class="hljs-number">1</span>-&gt;<span class="hljs-number">2</span>-&gt;<span class="hljs-number">3</span>-&gt;<span class="hljs-number">4</span>-&gt;<span class="hljs-number">5</span>-&gt;NULL
+
+<span class="hljs-number">2</span>-&gt;<span class="hljs-number">3</span>-&gt;<span class="hljs-number">4</span>-&gt;<span class="hljs-number">5</span>-&gt;NULL
+
+<span class="hljs-number">3</span>-&gt;<span class="hljs-number">4</span>-&gt;<span class="hljs-number">5</span>-&gt;NULL
+
+<span class="hljs-number">4</span>-&gt;<span class="hljs-number">5</span>-&gt;NULL
+
+<span class="hljs-number">5</span>-&gt;NULL</code></pre></div>
+<p>倒过来就是</p>
+<div class="hljs"><pre><code class="hljs clean"><span class="hljs-number">5</span>-&gt;NULL
+head
+<span class="hljs-number">4</span>-&gt;<span class="hljs-number">5</span>-&gt;NULL
+head
+<span class="hljs-number">3</span>-&gt;<span class="hljs-number">4</span>-&gt;<span class="hljs-number">5</span>-&gt;NULL
+head
+<span class="hljs-number">2</span>-&gt;<span class="hljs-number">3</span>-&gt;<span class="hljs-number">4</span>-&gt;<span class="hljs-number">5</span>-&gt;NULL
+head
+<span class="hljs-number">1</span>-&gt;<span class="hljs-number">2</span>-&gt;<span class="hljs-number">3</span>-&gt;<span class="hljs-number">4</span>-&gt;<span class="hljs-number">5</span>-&gt;NULL
+head</code></pre></div>
+<p>如何实现反转呢？</p>
+<div class="hljs"><pre><code class="hljs routeros">第一次反转
+head.next.<span class="hljs-attribute">next</span>=head;
+head.<span class="hljs-attribute">next</span>=<span class="hljs-literal">null</span>;
+也就是5-&gt;<span class="hljs-literal">NULL</span>
+变为<span class="hljs-literal">NULL</span>&lt;-NULL&lt;-5
+
+第二个反转
+除了头结点外，剩余的其他节点在上一次反转已经排好序了：<span class="hljs-literal">NULL</span>&lt;-5
+所以只需要反转头结点
+<span class="hljs-literal">NULL</span>&lt;-5-&gt;4
+head.next.<span class="hljs-attribute">next</span>=head;
+head.<span class="hljs-attribute">next</span>=<span class="hljs-literal">null</span>;
+<span class="hljs-literal">NULL</span>&lt;-5&lt;-4
+重复递归
+直到链表反转结束</code></pre></div>
+<p>代码如下：</p>
+<div class="hljs"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> ListNode <span class="hljs-title">reverseList</span><span class="hljs-params">(ListNode head)</span> </span>&#123;
+    <span class="hljs-comment">//递归出口，如果head为null或者只剩下一个元素也就是head.next==null的时候，返回</span>
+    <span class="hljs-keyword">if</span> (head == <span class="hljs-keyword">null</span> || head.next == <span class="hljs-keyword">null</span>) &#123;
+        <span class="hljs-keyword">return</span> head;
+    &#125;
+    <span class="hljs-comment">//保存每一次递归完成后的链表，执行递归</span>
+    ListNode p = reverseList(head.next);
+    head.next.next = head;	<span class="hljs-comment">//反转</span>
+    head.next = <span class="hljs-keyword">null</span>;
+    <span class="hljs-keyword">return</span> p;	<span class="hljs-comment">//每一次递归结束后返回的最后一个节点（反转后的头结点）</span>
 &#125;</code></pre></div>
 
             </article>
