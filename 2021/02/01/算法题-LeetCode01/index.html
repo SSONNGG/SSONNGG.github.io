@@ -426,9 +426,10 @@ head.<span class="hljs-attribute">next</span>=<span class="hljs-literal">null</s
 当出现相同字符时，收缩滑动窗口，收缩的大小取决于与当前字符重复的字符上一次出现的位置与当前字符的位置
 收缩应该使得子串刚好排除掉重复的字符
 创建一个整形max=<span class="hljs-number">0</span>记录最大子串的长度
-由中间变量tmp=font-<span class="hljs-keyword">back+1与max进行比较，当tmp大于max的时候，将tmp赋值给max，最终返回max</span>
-<span class="hljs-keyword"></span>
-<span class="hljs-keyword">|| </span>a <span class="hljs-keyword">b </span>c a <span class="hljs-keyword">b </span>c <span class="hljs-keyword">b </span><span class="hljs-keyword">ba </span><span class="hljs-keyword">b </span>c a <span class="hljs-keyword">b </span>c <span class="hljs-keyword">b </span><span class="hljs-keyword">b</span>
+由中间变量 tmp=font-<span class="hljs-keyword">back+1 </span>与 max 进行比较
+当 tmp 大于 max 的时候，将 tmp 赋值给 max，最终返回 max
+
+<span class="hljs-title">||</span> a <span class="hljs-keyword">b </span>c a <span class="hljs-keyword">b </span>c <span class="hljs-keyword">b </span><span class="hljs-keyword">b</span>
 <span class="hljs-keyword">a </span>不重复，前指针前移，max++
 <span class="hljs-title">|a|</span> <span class="hljs-keyword">b </span>c a <span class="hljs-keyword">b </span>c <span class="hljs-keyword">b </span><span class="hljs-keyword">b</span>
 <span class="hljs-keyword">b </span>不重复，前指针前移，max++
