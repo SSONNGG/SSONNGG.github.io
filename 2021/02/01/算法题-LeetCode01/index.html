@@ -163,7 +163,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      2.5k 字
+      3.7k 字
     </span>
   
 
@@ -173,7 +173,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      32
+      48
        分钟
     </span>
   
@@ -482,6 +482,119 @@ a <span class="hljs-keyword">b </span>c <span class="hljs-title">|a b c|</span> 
         <span class="hljs-keyword">return</span> max;
     &#125;
 &#125;</code></pre></div>
+<h1 id="25-k-个一组翻转链表"><a class="markdownIt-Anchor" href="#25-k-个一组翻转链表"></a> 25. K 个一组翻转链表</h1>
+<h2 id="题目描述-4"><a class="markdownIt-Anchor" href="#题目描述-4"></a> 【题目描述】</h2>
+<p>给你一个链表，每 k 个节点一组进行翻转，请你返回翻转后的链表。</p>
+<p>k 是一个正整数，它的值小于或等于链表的长度。</p>
+<p>如果节点总数不是 k 的整数倍，那么请将最后剩余的节点保持原有顺序。</p>
+<p>示例：</p>
+<p>给你这个链表：<code>1-&gt;2-&gt;3-&gt;4-&gt;5</code></p>
+<p>当 k = 2 时，应当返回: <code>2-&gt;1-&gt;4-&gt;3-&gt;5</code></p>
+<p>当 k = 3 时，应当返回: <code>3-&gt;2-&gt;1-&gt;4-&gt;5</code></p>
+<p>说明：</p>
+<p>你的算法只能使用常数的额外空间。<br>
+你不能只是单纯的改变节点内部的值，而是需要实际进行节点交换。</p>
+<p>【题解】</p>
+<p>读题可知：</p>
+<p>需要将链表分为三个部分：翻转部分 - 待翻转部分 - 未翻转部分</p>
+<p>每次在翻转之前，都需要确定翻转链表的范围，通过 k 次循环来确定当前链表是否处在需要翻转的范围内</p>
+<p>需要记录下翻转链表的前驱和后继，在翻转完成后把已翻转部分和未翻转部分连接</p>
+<p>初始需要 pre 和 end 用来记录待翻转链表的前驱和后继</p>
+<p>经过 k 次循环后，end 会到达末尾，此时记录待翻转链表的后继 next = end.next</p>
+<p>翻转链表，然后将三个部分的链表连接起来，重置 pre 和 end 指针，进入下一次循环</p>
+<p>当翻转的部分长度不足 k 时，在 end 结束后，end = null，已经到达末尾，说明运算结束，直接返回结果</p>
+<p>算法过程：</p>
+<div class="hljs"><pre><code class="hljs coq">初始链表：dummy-&gt;<span class="hljs-number">1</span>-&gt;<span class="hljs-number">2</span>-&gt;<span class="hljs-number">3</span>-&gt;<span class="hljs-number">4</span>-&gt;<span class="hljs-number">5</span>-&gt;<span class="hljs-number">6</span>-&gt;<span class="hljs-number">7</span>
+初始状态pre与<span class="hljs-keyword">end</span>位置如下
+|<span class="hljs-type">dummy</span>| <span class="hljs-type">1</span> <span class="hljs-number">2</span> <span class="hljs-number">3</span> <span class="hljs-number">4</span> <span class="hljs-number">5</span> <span class="hljs-number">6</span> <span class="hljs-number">7</span>
+当进行k次循环后，确定需要翻转的链表的终止位置
+|<span class="hljs-type">dummy</span> <span class="hljs-number">1</span> <span class="hljs-number">2</span> <span class="hljs-number">3</span>| <span class="hljs-type">4</span> <span class="hljs-number">5</span> <span class="hljs-number">6</span> <span class="hljs-number">7</span>
+给中间指针赋值，准备翻转
+|<span class="hljs-type">dummy</span> [<span class="hljs-number">1</span> <span class="hljs-number">2</span> <span class="hljs-number">3</span>]|<span class="hljs-type">-&gt; 4</span> <span class="hljs-number">5</span> <span class="hljs-number">6</span> <span class="hljs-number">7</span>
+将[start,<span class="hljs-keyword">end</span>]区间翻转
+|<span class="hljs-type">dummy</span> [<span class="hljs-number">3</span> <span class="hljs-number">2</span> <span class="hljs-number">1</span>]|<span class="hljs-type">-&gt;4</span> <span class="hljs-number">5</span> <span class="hljs-number">6</span> <span class="hljs-number">7</span>
+将两个部分连接，重置变量
+dummy <span class="hljs-number">3</span> <span class="hljs-number">2</span> |<span class="hljs-type">1</span>| <span class="hljs-type">4</span> <span class="hljs-number">5</span> <span class="hljs-number">6</span> <span class="hljs-number">7</span>
+继续k次循环
+dummy <span class="hljs-number">3</span> <span class="hljs-number">2</span> |<span class="hljs-type">1</span> [<span class="hljs-number">4</span> <span class="hljs-number">5</span> <span class="hljs-number">6</span>]| <span class="hljs-type">7</span>
+给中间指针赋值，准备翻转
+dummy <span class="hljs-number">3</span> <span class="hljs-number">2</span> |<span class="hljs-type">1</span> [<span class="hljs-number">4</span> <span class="hljs-number">5</span> <span class="hljs-number">6</span>]|<span class="hljs-type">-&gt;7</span>
+将[start,<span class="hljs-keyword">end</span>]区间翻转
+dummy <span class="hljs-number">3</span> <span class="hljs-number">2</span> |<span class="hljs-type">1</span> [<span class="hljs-number">6</span> <span class="hljs-number">5</span> <span class="hljs-number">4</span>]|<span class="hljs-type">-&gt;7</span>
+将两个部分连接，重置变量
+dummy <span class="hljs-number">3</span> <span class="hljs-number">2</span> <span class="hljs-number">1</span> <span class="hljs-number">6</span> <span class="hljs-number">5</span> |<span class="hljs-type">4</span>| <span class="hljs-type">7</span>
+<span class="hljs-keyword">end</span>移动到末尾，算法结束
+dummy <span class="hljs-number">3</span> <span class="hljs-number">2</span> <span class="hljs-number">1</span> <span class="hljs-number">6</span> <span class="hljs-number">5</span> |<span class="hljs-type">4</span> <span class="hljs-number">7</span> |<span class="hljs-type"></span></code></pre></div>
+<p>代码如下：</p>
+<div class="hljs"><pre><code class="hljs java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>&#123;
+    <span class="hljs-function"><span class="hljs-keyword">public</span> ListNode <span class="hljs-title">reverseKGroup</span><span class="hljs-params">(ListNode head, <span class="hljs-keyword">int</span> k)</span> </span>&#123;
+        <span class="hljs-keyword">if</span> (head == <span class="hljs-keyword">null</span> || head.next == <span class="hljs-keyword">null</span>)&#123;
+            <span class="hljs-keyword">return</span> head;
+        &#125;
+        <span class="hljs-comment">//定义一个假的节点。</span>
+        ListNode dummy=<span class="hljs-keyword">new</span> ListNode(<span class="hljs-number">0</span>);
+        <span class="hljs-comment">//假节点的next指向head。</span>
+        <span class="hljs-comment">// dummy-&gt;1-&gt;2-&gt;3-&gt;4-&gt;5</span>
+        dummy.next=head;
+        <span class="hljs-comment">//初始化pre和end都指向dummy。pre指每次要翻转的链表的头结点的上一个节点。end指每次要翻转的链表的尾节点</span>
+        ListNode pre=dummy;
+        ListNode end=dummy;
+
+        <span class="hljs-keyword">while</span>(end.next!=<span class="hljs-keyword">null</span>)&#123;
+            <span class="hljs-comment">//循环k次，找到需要翻转的链表的结尾,这里每次循环要判断end是否等于空,因为如果为空，end.next会报空指针异常。</span>
+            <span class="hljs-comment">//dummy-&gt;1-&gt;2-&gt;3-&gt;4-&gt;5 若k为2，循环2次，end指向2</span>
+            <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">0</span>;i&lt;k&amp;&amp;end != <span class="hljs-keyword">null</span>;i++)&#123;
+                end=end.next;
+            &#125;
+            <span class="hljs-comment">//如果end==null，即需要翻转的链表的节点数小于k，不执行翻转。</span>
+            <span class="hljs-keyword">if</span>(end==<span class="hljs-keyword">null</span>)&#123;
+                <span class="hljs-keyword">break</span>;
+            &#125;
+            <span class="hljs-comment">//先记录下end.next,方便后面链接链表</span>
+            ListNode next=end.next;
+            <span class="hljs-comment">//然后断开链表</span>
+            end.next=<span class="hljs-keyword">null</span>;
+            <span class="hljs-comment">//记录下要翻转链表的头节点</span>
+            ListNode start=pre.next;
+            <span class="hljs-comment">//翻转链表,pre.next指向翻转后的链表。1-&gt;2 变成2-&gt;1。 dummy-&gt;2-&gt;1</span>
+            pre.next=reverse(start);
+            <span class="hljs-comment">//翻转后头节点变到最后。通过.next把断开的链表重新链接。</span>
+            start.next=next;
+            <span class="hljs-comment">//将pre换成下次要翻转的链表的头结点的上一个节点。即start</span>
+            pre=start;
+            <span class="hljs-comment">//翻转结束，将end置为下次要翻转的链表的头结点的上一个节点。即start</span>
+            end=start;
+        &#125;
+        <span class="hljs-keyword">return</span> dummy.next;
+
+
+    &#125;
+    <span class="hljs-comment">//链表翻转</span>
+    <span class="hljs-comment">// 例子：   head： 1-&gt;2-&gt;3-&gt;4</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> ListNode <span class="hljs-title">reverse</span><span class="hljs-params">(ListNode head)</span> </span>&#123;
+         <span class="hljs-comment">//单链表为空或只有一个节点，直接返回原单链表</span>
+        <span class="hljs-keyword">if</span> (head == <span class="hljs-keyword">null</span> || head.next == <span class="hljs-keyword">null</span>)&#123;
+            <span class="hljs-keyword">return</span> head;
+        &#125;
+        <span class="hljs-comment">//前一个节点指针</span>
+        ListNode preNode = <span class="hljs-keyword">null</span>;
+        <span class="hljs-comment">//当前节点指针</span>
+        ListNode curNode = head;
+        <span class="hljs-comment">//下一个节点指针</span>
+        ListNode nextNode = <span class="hljs-keyword">null</span>;
+        <span class="hljs-keyword">while</span> (curNode != <span class="hljs-keyword">null</span>)&#123;
+            nextNode = curNode.next;<span class="hljs-comment">//nextNode 指向下一个节点,保存当前节点后面的链表。</span>
+            curNode.next=preNode;<span class="hljs-comment">//将当前节点next域指向前一个节点   null&lt;-1&lt;-2&lt;-3&lt;-4</span>
+            preNode = curNode;<span class="hljs-comment">//preNode 指针向后移动。preNode指向当前节点。</span>
+            curNode = nextNode;<span class="hljs-comment">//curNode指针向后移动。下一个节点变成当前节点</span>
+        &#125;
+        <span class="hljs-keyword">return</span> preNode;
+
+    &#125;
+
+
+&#125;</code></pre></div>
+
             </article>
             <hr>
             <div>
