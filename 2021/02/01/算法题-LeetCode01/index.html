@@ -565,11 +565,10 @@ dummy <span class="hljs-number">3</span> <span class="hljs-number">2</span> <spa
             <span class="hljs-comment">//翻转结束，将end置为下次要翻转的链表的头结点的上一个节点。即start</span>
             end=start;
         &#125;
-        <span class="hljs-keyword">return</span> dummy.next;
-
-
+        <span class="hljs-keyword">return</span> dummy.next;	
     &#125;
-    <span class="hljs-comment">//链表翻转</span>
+    
+    <span class="hljs-comment">//链表反转，迭代法，类似206号题</span>
     <span class="hljs-comment">// 例子：   head： 1-&gt;2-&gt;3-&gt;4</span>
     <span class="hljs-function"><span class="hljs-keyword">public</span> ListNode <span class="hljs-title">reverse</span><span class="hljs-params">(ListNode head)</span> </span>&#123;
          <span class="hljs-comment">//单链表为空或只有一个节点，直接返回原单链表</span>
@@ -589,9 +588,7 @@ dummy <span class="hljs-number">3</span> <span class="hljs-number">2</span> <spa
             curNode = nextNode;<span class="hljs-comment">//curNode指针向后移动。下一个节点变成当前节点</span>
         &#125;
         <span class="hljs-keyword">return</span> preNode;
-
     &#125;
-
 
 &#125;</code></pre></div>
 
@@ -627,6 +624,12 @@ dummy <span class="hljs-number">3</span> <span class="hljs-number">2</span> <spa
                 <div class="post-prevnext row">
                   <div class="post-prev col-6">
                     
+                    
+                      <a href="/SSONNGG.github.io/2021/02/16/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E5%90%8E%E7%BC%80%E8%A1%A8%E8%BE%BE%E5%BC%8F/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">数据结构 | 后缀表示法</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
                     
                   </div>
                   <div class="post-next col-6">
